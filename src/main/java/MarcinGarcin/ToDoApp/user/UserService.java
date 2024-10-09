@@ -1,6 +1,7 @@
 package MarcinGarcin.ToDoApp.user;
 
 
+
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,10 +18,13 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-    @Override
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
 
-        Optional<User> user = userRepository.findByUsername(login);
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+
+
+        Optional<User> user = userRepository.findByUsername(username);
 
         if (user.isPresent()) {
 
@@ -33,7 +37,7 @@ public class UserService implements UserDetailsService {
 
         }
         else{
-            throw new UsernameNotFoundException(login);
+            throw new UsernameNotFoundException(username);
         }
 
     }
