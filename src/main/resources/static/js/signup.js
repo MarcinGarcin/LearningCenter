@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     signupButton.addEventListener('click', function () {
         const passwordInput = document.querySelector('input[type="password"]');
         const confirmPasswordInput = document.querySelector('input[type="password"][name="confirm-password"]');
-        console.log(passwordInput,confirmPasswordInput)
 
         const isValid =   passwordInput.checkValidity() && confirmPasswordInput.checkValidity();
 

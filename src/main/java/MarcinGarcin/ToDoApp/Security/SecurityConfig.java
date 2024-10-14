@@ -50,8 +50,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(httpForm ->{
                     httpForm.loginPage("/req/login").permitAll();
-                    httpForm.successForwardUrl("/newTask");
-                    httpForm.defaultSuccessUrl("/newTask");
+                    httpForm.defaultSuccessUrl("/task");
 
                 })
 
