@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+  <form action="/newTask" method="post">
+    <h1>Create task</h1>
+    <div class="inputbox">
+      <ion-icon name="person-outline"></ion-icon>
+      <input type="text" id= "name" name="name" required>
+      <label>Name</label>
+    </div>
+    <div class="inputbox">
+      <select>
+        <option value="Priority.HIGH">High </option>
+        <option value="Priority.MEDIUM">Medium </option>
+        <option value="Priority.LOW">Low </option>
+      </select>
+    </div>
+    <button id= "submit" type="submit">Create</button>
+  </form>
+</section>
+
+</body>
+</html>
