@@ -2,70 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Create Task</title>
+  <title>New Task</title>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/task.js" defer></script>
 </head>
 <body>
 <section>
-  <form id="taskForm" action="/req/newTask" method="post">
-    <h1>Create Task</h1>
+  <form action="/task/new" method="post">
+    <h1>New task</h1>
     <div class="inputbox">
-      <ion-icon name="person-outline"></ion-icon>
-      <input type="text" id="name" name="name" required>
-      <label for="name">Task Name</label>
+      <ion-icon name="email-outline"></ion-icon>
+      <input name="name" id="name" type="text" required>
+      <label>Title</label>
     </div>
     <div class="inputbox">
-      <ion-icon name="list-outline"></ion-icon>
-      <select id="priority" name="priority" required>
-        <option value="LOW">Low</option>
-        <option value="MEDIUM">Medium</option>
-        <option value="HIGH">High</option>
+      <label for="priority"></label>
+      <select name="priority" id="priority" required>
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
       </select>
-      <label for="priority">Priority</label>
     </div>
-    <button id="submit" type="submit">Create Task</button>
-    <div class="back">
-      <p><a href="/req/tasks">Back to Tasks</a></p>
+    <div class="inputbox">
+      <label for="dueDate"></label>
+      <input type="date" id="dueDate" name="dueDate" required>
+    </div>
+      <button type="submit">Create</button>
+    <div class="register">
+      <p><a href="/task">Go back to tasks!</a></p>
     </div>
   </form>
 </section>
+<!--<section>-->
+<!--  -->
+<!--  <form action="/task/new" method="post">-->
+<!--    <h1>New Task</h1>-->
+<!--    <div class="dialog-row">-->
+<!--      <label th:if="${param.error}" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}" class="text-center redText"></label>-->
+<!--    </div>-->
+<!--    <div class="inputbox">-->
+<!--      <ion-icon name="email-outline"></ion-icon>-->
+<!--      <input name="name" id="name" type="text" required>-->
+<!--      <label>Title</label>-->
+<!--    </div>-->
+<!--    <div class="inputbox">-->
+<!--      <label for="priority"></label>-->
+<!--      <select name="priority" id="priority" required>-->
+<!--        <option value="High">High</option>-->
+<!--        <option value="Medium">Medium</option>-->
+<!--        <option value="Low">Low</option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="inputbox">-->
+<!--      <label for="dueDate"></label>-->
+<!--      <input type="date" id="dueDate" name="dueDate" required>-->
+<!--    </div>-->
+<!--    <button type="submit">Create</button>-->
+<!--    <div class="register">-->
+<!--      <p><a href="/task">Go back to tasks!</a></p>-->
+<!--    </div>-->
 
-<script>
-  document.getElementById("taskForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    const name = document.getElementById("name").value;
-    const priority = document.getElementById("priority").value;
-
-    const taskData = {
-      name,
-      priority
-    };
-
-    const jsonData = JSON.stringify(taskData);
-    fetch('/req/newTask', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: jsonData
-    })
-            .then(response => {
-              if (response.ok) {
-                alert('Task created successfully! Redirecting to tasks...');
-                window.location.href = '/task'; // Redirect after successful task creation
-              } else {
-                alert('Failed to create task. Please try again.');
-              }
-            })
-            .catch(error => {
-              console.error('Error:', error);
-              alert('An error occurred. Please try again.');
-            });
-  });
-</script>
 </body>
 </html>
