@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 
-@Slf4j
 @Controller
 @RequestMapping("/task")
 public class TaskController {
@@ -32,7 +31,6 @@ public class TaskController {
 
     @PostMapping("/new")
     public String createTask(@ModelAttribute Task task) {
-
 
         taskService.addTask(task);
         return "redirect:/task";
