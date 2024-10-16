@@ -23,7 +23,7 @@ import lombok.AllArgsConstructor;
 public class SecurityConfig {
 
     @Autowired
-    private final UserService userService;
+    private final UserService userService   ;
 
 
     @Bean
@@ -50,7 +50,8 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(httpForm ->{
                     httpForm.loginPage("/req/login").permitAll();
-                    httpForm.defaultSuccessUrl("/task");
+                    httpForm.defaultSuccessUrl("/task", true);
+
 
                 })
 
