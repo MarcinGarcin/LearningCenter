@@ -2,8 +2,14 @@ package MarcinGarcin.ToDoApp.Task;
 
 import MarcinGarcin.ToDoApp.user.User;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import java.time.LocalDate;
 
+
+
+@Getter
+@Setter
 @Entity
 public class Task {
 
@@ -28,43 +34,6 @@ public class Task {
         this.user = user;
         this.name = name;
         this.priority = priority;
-        this.dueDate = dueDate;
-    }
-
-    // Getters and setters
-    public Long getId() {
-        return id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPriority() {
-        return priority;
-    }
-
-    public void setPriority(String priority) {
-        this.priority = priority;
-    }
-
-    public LocalDate getDueDate() {
-        return dueDate;
-    }
-
-    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 }
