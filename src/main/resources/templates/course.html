@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task List</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/signup.js" defer></script>
+    <style>
+
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 500px;
+            height: 700px;
+            padding: 20px;
+            background-color: transparent;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            height: 80%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        td a {
+            font-size: 1.5rem;
+            color: #fff;
+            text-align: center;
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            border-radius: 40px;
+            background-color: rgba(255, 255, 255, 1);
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.4s ease;
+        }
+
+        button a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h1>Your Courses</h1>
+
+    <table>
+        <tbody>
+        <tr th:each="course : ${courses}">
+            <td><a th:href="'/course/' + ${course.courseName}" th:text="${course.courseName}">Course</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button><a href="/course/new">Create course</a></button>
+</section>
+</body>
+</html>

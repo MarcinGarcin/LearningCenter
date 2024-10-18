@@ -1,50 +1,52 @@
-package MarcinGarcin.ToDoApp.Course;
+package MarcinGarcin.ToDoApp.Note;
 
 
+import MarcinGarcin.ToDoApp.Course.Course;
+import MarcinGarcin.ToDoApp.Course.CourseRepository;
+import MarcinGarcin.ToDoApp.Course.CourseService;
+import MarcinGarcin.ToDoApp.Task.Task;
 import MarcinGarcin.ToDoApp.user.User;
 import MarcinGarcin.ToDoApp.user.UserRepository;
+import MarcinGarcin.ToDoApp.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CourseService {
+public class NoteService {
 
     @Autowired
-    private CourseRepository courseRepository;
+    private NoteRepository noteRepository;
 
     @Autowired
     private UserRepository userRepository;
 
-    public List<Course> getCoursesForLoggedUser() {
+    @Autowired
+    private CourseRepository courseRepository;
+
+    public List<Note> getNotesForLoggedInUserAndCourse(String course) {
         String username = getLoggedInUsername();
         Optional<User> loggedInUser = userRepository.findByUsername(username);
+        Optional<Course> currentCourse = courseRepository.findByCourseName(course);
 
-        if (loggedInUser.isPresent()) {
-            return courseRepository.findByUserId(loggedInUser.get().getId());
-        } else {
-            return List.of();
-        }
+        return  noteRepository.findByCourseAndUser(currentCourse.get(), loggedInUser.get());
     }
 
-    public Optional<Course> findByCourseName(String courseName) {
-        return courseRepository.findByCourseName(courseName);
-    }
-
-
-    public void addCourse(Course course) {
+    public void addNote(String courseName,Note note) {
         String username = getLoggedInUsername();
         Optional<User> loggedInUser = userRepository.findByUsername(username);
+        Optional<Course> currentCourse = courseRepository.findByCourseName(courseName);
 
-        if (loggedInUser.isPresent()) {
-            course.setUser(loggedInUser.orElse(null));
-            courseRepository.save(course);
-        }
+        note.setUser(loggedInUser.get());
+        note.setCourse(currentCourse.get());
+        noteRepository.save(note);
     }
+
 
 
     private String getLoggedInUsername() {

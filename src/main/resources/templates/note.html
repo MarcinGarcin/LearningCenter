@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Notes</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<section>
+  <h1>Your Notes for Course: <span th:text="${courseName}"></span></h1>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="note : ${notes}">
+      <td th:text="${note.title}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <a th:href="@{/course/${courseName}/new}">
+    <button>Create New Note</button>
+  </a>
+</section>
+</body>
+</html>

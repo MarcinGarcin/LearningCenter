@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create New Note</title>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<section>
+  <form action="#" th:action="@{/course/${courseName}}" method="post">
+    <h1>New Note for Course: <span th:text="${courseName}"></span></h1>
+
+    <div class="inputbox">
+      <ion-icon name="document-text-outline"></ion-icon>
+      <input name="title" id="title" type="text" required>
+      <label for="title">Title</label>
+    </div>
+
+    <div class="inputbox">
+      <ion-icon name="create-outline"></ion-icon>
+      <textarea name="content" id="content" required></textarea>
+      <label for="content">Content</label>
+    </div>
+
+    <button type="submit">Create</button>
+
+    <div class="register">
+      <p><a th:href="@{/course/{courseName}(courseName=${courseName})}">Go back to notes!</a></p>
+    </div>
+  </form>
+</section>
+</body>
+</html>

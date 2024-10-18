@@ -25,18 +25,18 @@ public class TaskService {
         Optional<User> loggedInUser = userRepository.findByUsername(username);
 
         if (loggedInUser.isPresent()) {
-            return taskRepository.findByUserId(loggedInUser.get().getId());  // Fetch tasks by user ID
+            return taskRepository.findByUserId(loggedInUser.get().getId());
         } else {
             return List.of();
         }
     }
 
     public void addTask(Task task) {
-        String username = getLoggedInUsername();  // Retrieve logged-in username
+        String username = getLoggedInUsername();
         Optional<User> loggedInUser = userRepository.findByUsername(username);
 
         if (loggedInUser.isPresent()) {
-            task.setUser(loggedInUser.orElse(null));  // Associate task with the user
+            task.setUser(loggedInUser.orElse(null));
             taskRepository.save(task);
         }
     }
