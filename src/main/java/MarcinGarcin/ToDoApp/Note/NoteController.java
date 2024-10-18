@@ -12,6 +12,8 @@ import java.util.List;
 @RequestMapping("/")
 public class NoteController {
 
+
+    //todo resolve problem with post and get method mixing and causing problems
     @Autowired
     private NoteService noteService;
 
