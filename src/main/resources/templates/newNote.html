@@ -6,11 +6,18 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+  textarea{
+    width: 100%;
+    height: 500px;
+    resize: none;
+  }
+  </style>
 </head>
 <body>
 <section>
-  <form action="#" th:action="@{/course/${courseName}}" method="post">
-    <h1>New Note for Course: <span th:text="${courseName}"></span></h1>
+  <form action="#" th:action="@{/course/{courseName}/new(courseName=${courseName})}" method="post">
+  <h1>New Note for Course: <span th:text="${courseName}"></span></h1>
 
     <div class="inputbox">
       <ion-icon name="document-text-outline"></ion-icon>
@@ -21,7 +28,7 @@
     <div class="inputbox">
       <ion-icon name="create-outline"></ion-icon>
       <textarea name="content" id="content" required></textarea>
-      <label for="content">Content</label>
+      <label for="content"></label>
     </div>
 
     <button type="submit">Create</button>

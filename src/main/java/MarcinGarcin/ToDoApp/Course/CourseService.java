@@ -1,6 +1,7 @@
 package MarcinGarcin.ToDoApp.Course;
 
 
+import MarcinGarcin.ToDoApp.Note.NoteRepository;
 import MarcinGarcin.ToDoApp.user.User;
 import MarcinGarcin.ToDoApp.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class CourseService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private NoteRepository noteRepository;
 
     public List<Course> getCoursesForLoggedUser() {
         String username = getLoggedInUsername();
@@ -56,5 +60,21 @@ public class CourseService {
             return principal.toString();
         }
     }
+    //todo poprawić usuwanie kursów
+//    public void deleteById(Long id) {
+//        if(noteRepository.findByCourseAndUser(courseRepository.findById(id).get(),userRepository.findByUsername(getLoggedInUsername()).get()).isEmpty()){
+//        }
+//        else{
+//            noteRepository.deleteByCourse(courseRepository.findById(id).get());
+//        }
+//        courseRepository.deleteById(id);
+//
+//
+//
+//
+//
+//
+//    }
+
 
 }

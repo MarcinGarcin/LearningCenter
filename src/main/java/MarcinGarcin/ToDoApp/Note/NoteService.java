@@ -48,7 +48,6 @@ public class NoteService {
     }
 
 
-
     private String getLoggedInUsername() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 

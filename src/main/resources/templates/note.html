@@ -11,9 +11,6 @@
 
   <table>
     <thead>
-    <tr>
-      <th>Title</th>
-    </tr>
     </thead>
     <tbody>
     <tr th:each="note : ${notes}">
@@ -22,7 +19,7 @@
     </tbody>
   </table>
 
-  <a th:href="@{/course/${courseName}/new}">
+  <a th:href="@{/course/{courseName}/new(courseName=${courseName})}">
     <button>Create New Note</button>
   </a>
 </section>

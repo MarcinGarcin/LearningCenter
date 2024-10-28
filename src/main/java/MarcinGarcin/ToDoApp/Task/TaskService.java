@@ -41,6 +41,10 @@ public class TaskService {
         }
     }
 
+    public void deleteById(Long id) {
+        taskRepository.deleteById(id);
+    }
+
     private String getLoggedInUsername() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
