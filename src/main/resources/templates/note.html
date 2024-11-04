@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Your Notes</title>
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <title>Create New Note</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        textarea{
+            width: 450px;
+            height: 500px;
+            resize: none;
+        }
+    </style>
 </head>
 <body>
 <section>
-  <h1>Your Notes for Course: <span th:text="${courseName}"></span></h1>
+    <form action="#" th:action="@{/course/{courseName}/{noteId}(courseName=${courseName}, noteId=${note.id})}" method="post">
+        <h1>Note: <span th:text="${note.getTitle()}"></span></h1>
 
-  <table>
-    <thead>
-    </thead>
-    <tbody>
-    <tr th:each="note : ${notes}">
-      <td th:text="${note.title}"></td>
-    </tr>
-    </tbody>
-  </table>
+        <div class="inputbox">
+            <ion-icon name="create-outline"></ion-icon>
+            <textarea name="content" id="content" th:text="${note.content}" required></textarea>
+            <label for="content">Content</label>
+        </div>
 
-  <a th:href="@{/course/{courseName}/new(courseName=${courseName})}">
-    <button>Create New Note</button>
-  </a>
+        <button type="submit">Save</button>
+
+        <div class="register">
+            <p><a th:href="@{/course/{courseName}(courseName=${courseName})}">Go back to notes!</a></p>
+        </div>
+    </form>
 </section>
 </body>
 </html>

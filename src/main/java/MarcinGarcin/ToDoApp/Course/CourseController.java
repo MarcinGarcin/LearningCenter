@@ -34,7 +34,7 @@ public class CourseController {
     }
     @PostMapping("/delete/{id}")
     public String deleteTask(@PathVariable Long id) {
-        //courseService.deleteById(id);
+        courseService.deleteById(id);
         return "redirect:/course";
     }
 

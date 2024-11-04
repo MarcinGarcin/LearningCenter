@@ -1,12 +1,14 @@
 package MarcinGarcin.ToDoApp.Note;
 
-import MarcinGarcin.ToDoApp.Task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Controller
 @RequestMapping("/")
@@ -21,8 +23,29 @@ public class NoteController {
         List<Note> notes = noteService.getNotesForLoggedInUserAndCourse(courseName);
         model.addAttribute("notes", notes);
         model.addAttribute("courseName", courseName);
-        return "note";
+        return "notes";
     }
+
+    @GetMapping("/course/{courseName}/{noteId}")
+    public String showAlreadyCreatedNote(@PathVariable String courseName,@PathVariable long noteId, Model model) {
+            Optional<Note> optionalNote = noteService.getNoteFromId(noteId);
+
+            if (optionalNote.isPresent()) {
+                model.addAttribute("note", optionalNote.get());
+            } else {
+                return "errorPage";
+            }
+
+            return "note";
+        }
+
+    @PostMapping("/course/{courseName}/{noteId}")
+    public String updateNote(@PathVariable String courseName, @PathVariable long noteId, @ModelAttribute Note note) {
+        noteService.updateNote(noteId, note);
+        return "redirect:/course/" + courseName + "/" + noteId;
+    }
+
+
 
 
     @GetMapping("/course/{courseName}/new")
