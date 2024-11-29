@@ -27,6 +27,7 @@ public class Note {
 
     private String title;
 
+    @Column(length = 1024)
     private String content;
 
 
