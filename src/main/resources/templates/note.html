@@ -20,9 +20,8 @@
         <h1>Note: <span th:text="${note.getTitle()}"></span></h1>
 
         <div class="inputbox">
-            <ion-icon name="create-outline"></ion-icon>
             <textarea name="content" id="content" th:text="${note.content}" required></textarea>
-            <label for="content">Content</label>
+            <label for="content"></label>
         </div>
 
         <button type="submit">Save</button>
