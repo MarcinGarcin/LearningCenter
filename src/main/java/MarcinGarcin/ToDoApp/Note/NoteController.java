@@ -57,7 +57,18 @@ public class NoteController {
 
 
     @PostMapping("/course/{courseName}/new")
-    public String createNote(@PathVariable String courseName, @ModelAttribute Note note) {
+    public String createNote(@PathVariable String courseName, @ModelAttribute Note note, Model model) {
+        Boolean isAlreadyCreated = false;
+        List<Note> notes = noteService.getNotesForLoggedInUserAndCourse(courseName);
+        for (Note n : notes) {
+            if(n.getTitle().equals(note.getTitle())) {
+                isAlreadyCreated = true;
+            }
+        }
+        if(isAlreadyCreated) {
+            model.addAttribute("errorMessage", "Note with this title already exists.");
+            return "newNote";
+        }
         noteService.addNote(courseName, note);
         return "redirect:/course/" + courseName;
     }

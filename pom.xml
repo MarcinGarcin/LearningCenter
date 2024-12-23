@@ -9,8 +9,8 @@
 		<relativePath/>
 	</parent>
 	<groupId>MarcinGarcin</groupId>
-	<artifactId>ToDoApp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>LearningCenter</artifactId>
+	<version>0.1</version>
 	<name>ToDoApp</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>

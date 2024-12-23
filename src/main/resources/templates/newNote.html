@@ -18,6 +18,9 @@
 <section>
   <form action="#" th:action="@{/course/{courseName}/new(courseName=${courseName})}" method="post">
   <h1>New Note for Course: <span th:text="${courseName}"></span></h1>
+    <div th:if="${errorMessage}" class="error-message" style="color: black; font-weight: bold;">
+      <p th:text="${errorMessage}"></p>
+    </div>
 
     <div class="inputbox">
       <ion-icon name="document-text-outline"></ion-icon>

@@ -30,10 +30,6 @@ public class CourseService {
                 .orElse(List.of());
     }
 
-    public Optional<Course> findByCourseName(String courseName) {
-        return courseRepository.findByCourseName(courseName);
-    }
-
     public void addCourse(Course course) {
         if (course.getCourseName().contains(" ")) {
             course.setCourseName(course.getCourseName().replace(" ","_"));

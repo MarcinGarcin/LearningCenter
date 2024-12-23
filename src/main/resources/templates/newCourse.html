@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title><!DOCTYPE html>
-      <html lang="en">
-      <head>
-      <meta charset="UTF-8">
-      <title>New Course</title>
+  <meta charset="UTF-8">
+  <title>New Course</title>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="/css/style.css">
@@ -15,24 +11,24 @@
 <section>
   <form action="/course/new" method="post">
     <h1>New Course</h1>
+
+
+    <div th:if="${errorMessage}" class="error-message" style="color: black; font-weight: bold;">
+      <p th:text="${errorMessage}"></p>
+    </div>
+
     <div class="inputbox">
       <ion-icon name="email-outline"></ion-icon>
       <input name="courseName" id="courseName" type="text" required>
       <label>Subject</label>
     </div>
-    
+
     <button type="submit">Create</button>
     <div class="register">
-      <p><a href="/course/{courseName}">Go back to courses!</a></p>
+      <p><a href="/course">Go back to courses!</a></p>
     </div>
   </form>
 </section>
-
-</body>
-</html>
-</title>
-</head>
-<body>
 
 </body>
 </html>
