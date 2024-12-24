@@ -27,7 +27,7 @@ public class Note {
 
     private String title;
 
-    @Column(length = 1024)
+    @Column(length = 65535)
     private String content;
 
 

@@ -40,9 +40,19 @@ public class NoteController {
         }
 
     @PostMapping("/course/{courseName}/{noteId}")
-    public String updateNote(@PathVariable String courseName, @PathVariable long noteId, @ModelAttribute Note note) {
+    public String updateNote(@PathVariable String courseName, @PathVariable long noteId, @ModelAttribute Note note, Model model) {
+        if(note.getContent().length()>65535){
+            model.addAttribute("errorMessage", "Note is too long.");
+            return "newNote";
+        }
         noteService.updateNote(noteId, note);
         return "redirect:/course/" + courseName + "/" + noteId;
+    }
+
+    @PostMapping("/course/{courseName}/delete/{noteId}")
+    public String deleteNote(@PathVariable String courseName, @PathVariable long noteId) {
+        noteService.deleteNote(courseName,noteId);
+        return "redirect:/course/" + courseName;
     }
 
 
@@ -64,6 +74,10 @@ public class NoteController {
             if(n.getTitle().equals(note.getTitle())) {
                 isAlreadyCreated = true;
             }
+        }
+        if(note.getContent().length()>65535){
+            model.addAttribute("errorMessage", "Note is too long.");
+            return "newNote";
         }
         if(isAlreadyCreated) {
             model.addAttribute("errorMessage", "Note with this title already exists.");

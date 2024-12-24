@@ -56,6 +56,24 @@ public class NoteService {
         noteRepository.save(note);
     }
 
+    public void deleteNote(String courseName, Long noteId) {
+        String username = getLoggedInUsername();
+        Optional<User> loggedInUserOpt = userRepository.findByUsername(username);
+        Optional<Course> courseOpt = courseRepository.findByCourseName(courseName);
+        Optional<Note> noteOpt = noteRepository.findById(noteId);
+
+        if (loggedInUserOpt.isPresent() && courseOpt.isPresent() && noteOpt.isPresent()) {
+            User loggedInUser = loggedInUserOpt.get();
+            Course course = courseOpt.get();
+            Note note = noteOpt.get();
+
+            if (note.getCourse().equals(course) && course.getUser().equals(loggedInUser)) {
+                noteRepository.delete(note); // Perform deletion
+            }
+        }
+    }
+
+
 
     private String getLoggedInUsername() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -66,5 +84,6 @@ public class NoteService {
             return principal.toString();
         }
     }
+
 
 }

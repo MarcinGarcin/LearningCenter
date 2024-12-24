@@ -6,9 +6,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/signup.js" defer></script>
     <style>
-
         section {
             display: flex;
             flex-direction: column;
@@ -85,5 +83,13 @@
 
     <button><a href="/task/new">Create Task</a></button>
 </section>
+<nav>
+    <ul>
+        <li><a href="/task"><img th:src="@{/assets/task.png}" alt="Tasks" style="width: 25px; height: auto;"></a></li>
+        <li><a href="/home"><img th:src="@{/assets/home.png}" alt="Home" style="width: 25px; height: auto;"></a></li>
+        <li><a href="/course"><img th:src="@{/assets/note.png}" alt="Notes" style="width: 25px; height: auto;"></a></li>
+        <li><a href="/req/login"><img th:src="@{/assets/logout.png}" alt="logout" style="width: 25px; height: auto;"></a></li>
+    </ul>
+</nav>
 </body>
 </html>

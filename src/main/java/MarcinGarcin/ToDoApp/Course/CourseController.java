@@ -1,7 +1,6 @@
 package MarcinGarcin.ToDoApp.Course;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -45,7 +44,7 @@ public class CourseController {
 
 
     @PostMapping("/delete/{id}")
-    public String deleteTask(@PathVariable Long id) {
+    public String deleteCourse(@PathVariable Long id) {
         courseService.deleteById(id);
         return "redirect:/course";
     }
