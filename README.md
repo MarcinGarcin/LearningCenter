@@ -1,5 +1,5 @@
 # Learning center
-# [https://learningcenter.onrender.com/req/login)
+# https://learningcenter.onrender.com/req/login
 
 Learning Center is a Spring Boot-based application designed to help users manage their academic or personal tasks efficiently. It allows users to create, organize, and manage notes across multiple subjects while also maintaining a dedicated to-do list for tracking tasks.
 
