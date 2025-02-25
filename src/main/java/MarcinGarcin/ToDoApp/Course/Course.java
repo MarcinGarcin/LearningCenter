@@ -1,6 +1,6 @@
 package MarcinGarcin.ToDoApp.Course;
 
-import MarcinGarcin.ToDoApp.user.User;
+import MarcinGarcin.ToDoApp.User.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

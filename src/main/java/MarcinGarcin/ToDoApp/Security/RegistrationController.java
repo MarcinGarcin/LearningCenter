@@ -1,14 +1,12 @@
 package MarcinGarcin.ToDoApp.Security;
 
-import MarcinGarcin.ToDoApp.user.User;
+import MarcinGarcin.ToDoApp.User.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import static java.rmi.server.LogStream.log;
 
 
 @Slf4j
@@ -17,7 +15,7 @@ public class RegistrationController {
 
 
     @Autowired
-    private MarcinGarcin.ToDoApp.user.UserRepository userRepository;
+    private MarcinGarcin.ToDoApp.User.UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;

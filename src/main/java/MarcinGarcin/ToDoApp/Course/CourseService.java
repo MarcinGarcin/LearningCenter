@@ -1,15 +1,14 @@
 package MarcinGarcin.ToDoApp.Course;
 
 import MarcinGarcin.ToDoApp.Note.NoteRepository;
-import MarcinGarcin.ToDoApp.user.User;
-import MarcinGarcin.ToDoApp.user.UserRepository;
+import MarcinGarcin.ToDoApp.User.User;
+import MarcinGarcin.ToDoApp.User.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import java.beans.Transient;
 import java.util.List;
 import java.util.Optional;
 

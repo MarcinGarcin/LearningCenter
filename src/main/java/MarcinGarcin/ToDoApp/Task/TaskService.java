@@ -1,8 +1,8 @@
 package MarcinGarcin.ToDoApp.Task;
 
 
-import MarcinGarcin.ToDoApp.user.User;
-import MarcinGarcin.ToDoApp.user.UserRepository;
+import MarcinGarcin.ToDoApp.User.User;
+import MarcinGarcin.ToDoApp.User.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

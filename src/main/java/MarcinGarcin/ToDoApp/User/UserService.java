@@ -1,4 +1,4 @@
-package MarcinGarcin.ToDoApp.user;
+package MarcinGarcin.ToDoApp.User;
 
 
 

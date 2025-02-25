@@ -1,6 +1,6 @@
 package MarcinGarcin.ToDoApp.Security;
 
-import MarcinGarcin.ToDoApp.user.UserService;
+import MarcinGarcin.ToDoApp.User.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
