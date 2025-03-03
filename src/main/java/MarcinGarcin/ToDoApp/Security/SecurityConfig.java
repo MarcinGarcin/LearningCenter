@@ -18,13 +18,14 @@ import org.springframework.security.web.SecurityFilterChain;
 import lombok.AllArgsConstructor;
 
 @Configuration
-@AllArgsConstructor
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Autowired
-    private final UserService userService   ;
+    private final UserService userService;
 
+    public SecurityConfig(UserService userService) {
+        this.userService = userService;
+    }
 
     @Bean
     public UserDetailsService userDetailsService(){

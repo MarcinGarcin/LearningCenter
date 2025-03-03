@@ -14,11 +14,13 @@ import java.util.Optional;
 @Service
 public class TaskService {
 
-    @Autowired
     private TaskRepository taskRepository;
-
-    @Autowired
     private UserRepository userRepository;
+
+    public TaskService(TaskRepository taskRepository, UserRepository userRepository) {
+        this.taskRepository = taskRepository;
+        this.userRepository = userRepository;
+    }
 
     public List<Task> getTasksForLoggedInUser() {
         String username = getLoggedInUsername();

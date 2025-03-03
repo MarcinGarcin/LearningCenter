@@ -16,14 +16,17 @@ import java.util.Optional;
 @Service
 public class NoteService {
 
-    @Autowired
     private NoteRepository noteRepository;
-
-    @Autowired
     private UserRepository userRepository;
-
-    @Autowired
     private CourseRepository courseRepository;
+
+    public NoteService(NoteRepository noteRepository, CourseRepository courseRepository, UserRepository userRepository) {
+        this.noteRepository = noteRepository;
+        this.userRepository = userRepository;
+        this.courseRepository = courseRepository;
+    }
+
+
 
     public List<Note> getNotesForLoggedInUserAndCourse(String course) {
         String username = getLoggedInUsername();
