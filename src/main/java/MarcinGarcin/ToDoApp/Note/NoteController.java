@@ -14,9 +14,13 @@ import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 @RequestMapping("/")
 public class NoteController {
 
+    private final NoteService noteService;
 
-    @Autowired
-    private NoteService noteService;
+    public NoteController(NoteService noteService) {
+        this.noteService = noteService;
+    }
+
+
 
     @GetMapping("/course/{courseName}")
     public String getNotesForCourse(@PathVariable String courseName, Model model) {

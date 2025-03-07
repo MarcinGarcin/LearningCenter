@@ -11,8 +11,12 @@ import java.util.List;
 @RequestMapping("/course")
 public class CourseController {
 
-    @Autowired
-    private CourseService courseService;
+    private final CourseService courseService;
+
+
+    public CourseController(CourseService courseService) {
+        this.courseService = courseService;
+    }
 
 
     @GetMapping

@@ -11,9 +11,11 @@ import java.util.List;
 @RequestMapping("/task")
 public class TaskController {
 
-
-    @Autowired
     private TaskService taskService;
+
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
+    }
 
 
     @GetMapping

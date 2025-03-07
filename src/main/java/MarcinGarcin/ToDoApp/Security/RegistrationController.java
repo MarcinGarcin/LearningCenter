@@ -1,6 +1,8 @@
 package MarcinGarcin.ToDoApp.Security;
 
+
 import MarcinGarcin.ToDoApp.User.User;
+import MarcinGarcin.ToDoApp.User.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RegistrationController {
 
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private MarcinGarcin.ToDoApp.User.UserRepository userRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
+    public RegistrationController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
 
     @PostMapping(value = "/req/signup", consumes = "application/json")

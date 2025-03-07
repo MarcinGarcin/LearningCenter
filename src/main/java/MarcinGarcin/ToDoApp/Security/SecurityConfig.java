@@ -53,16 +53,13 @@ public class SecurityConfig {
                     httpForm.loginPage("/req/login").permitAll();
                     httpForm.defaultSuccessUrl("/home", true);
                     httpForm.failureUrl("/req/login");
-
-
                 })
-
-
                 .authorizeHttpRequests(registry ->{
-                    registry.requestMatchers("/req/signup","/css/**","/js/**").permitAll();
+                    registry.requestMatchers("/req/signup", "/req/login", "/css/**", "/js/**").permitAll();
                     registry.anyRequest().authenticated();
                 })
                 .build();
     }
+
 
 }
