@@ -4,7 +4,6 @@ package MarcinGarcin.ToDoApp.Security;
 import MarcinGarcin.ToDoApp.User.User;
 import MarcinGarcin.ToDoApp.User.UserRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

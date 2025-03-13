@@ -1,7 +1,7 @@
 package MarcinGarcin.ToDoApp.Security;
 
 import MarcinGarcin.ToDoApp.User.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -15,8 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 
-import lombok.AllArgsConstructor;
-
+@Slf4j
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
