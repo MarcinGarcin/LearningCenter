@@ -1,7 +1,5 @@
-package MarcinGarcin.ToDoApp.Task;
+package MarcinGarcin.ToDoApp.User;
 
-import MarcinGarcin.ToDoApp.User.User;
-import MarcinGarcin.ToDoApp.User.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
